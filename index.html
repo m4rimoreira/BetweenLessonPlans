@@ -450,6 +450,21 @@
   .room-label{font-size:11px}
   .room-emoji-svg{font-size:18px}
 }
+/* ============ LIGHTS BUTTON + MAP HINT ============ */
+.lights-cta{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:22px;text-align:center}
+.lights-btn{border:0;border-radius:999px;background:var(--pink-deep);color:#fff;font-weight:700;font-size:14px;padding:12px 22px;box-shadow:0 6px 16px #d9789440;transition:.2s;cursor:pointer}
+.lights-btn:hover{transform:translateY(-2px);filter:brightness(.96)}
+.lights-cta span{font-size:12px;color:var(--muted)}
+.settings-panel{top:50%;left:50%;right:auto;transform:translate(-50%,-50%);max-height:calc(100vh - 40px);overflow-y:auto}
+.settings-panel.open{animation:panelIn .2s}
+@keyframes panelIn{from{opacity:0;transform:translate(-50%,-46%)}to{opacity:1;transform:translate(-50%,-50%)}}
+.map-hint{display:none}
+@media(max-width:700px){
+  .map-hint{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:10px;font-size:12px;font-weight:700;color:var(--pink-deep)}
+  .map-hint .arrow{font-size:20px;animation:nudge 1s ease-in-out infinite alternate}
+  .map-hint.done{display:none}
+}
+@keyframes nudge{from{transform:translateX(0)}to{transform:translateX(6px)}}
 </style>
 </head>
 <body>
@@ -458,7 +473,6 @@
   <div class="top-actions">
     <button class="small-btn" onclick="goHome()"><span>⌂</span><span class="lbl">Home</span></button>
     <button class="icon-btn" id="themeToggle" aria-label="Toggle dark theme"><span>🌙</span><span class="lbl">Dark</span></button>
-    <button class="icon-btn" id="settingsToggle" aria-expanded="false" aria-controls="settingsPanel"><span>✦</span><span class="lbl">Customize the lights</span></button>
   </div>
 </header>
 
@@ -516,6 +530,10 @@ But between school fundraisers and meetings something starts to change.</p>
       <div class="desk"><a href="#explore" onclick="showSection('explore')"><span class="emoji">🏫</span>Explore</a></div>
     </div>
     <div class="teacher-desk" onclick="showSection('authorNote')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showSection('authorNote')}">a little note from the author ♡</div>
+  </div>
+  <div class="lights-cta">
+    <button class="lights-btn" id="settingsToggle" aria-expanded="false" aria-controls="settingsPanel">✦ Customize the lights</button>
+    <span>Tap to change the color of the garland ✨</span>
   </div>
 </section>
 
@@ -614,6 +632,7 @@ But between school fundraisers and meetings something starts to change.</p>
       </div>
 
       <!-- O Mapa de verdade -->
+      <div class="map-hint" id="mapHint"><span>Swipe sideways to see the whole map</span><span class="arrow">→</span></div>
       <div class="map-board">
         <div class="compass"></div>
         <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" id="schoolMapSvg">
@@ -5832,15 +5851,19 @@ function applyTheme(theme){
   document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#1a1d21' : '#f7f3eb');
 }
 function initTheme(){
-  function initTheme(){
   applyTheme('light');
-}
 }
 document.getElementById('themeToggle').addEventListener('click', ()=>{
   const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   applyTheme(next);
   try { localStorage.setItem('classroomTheme', next); } catch(e){}
 });
+const mapBoard = document.querySelector('.map-board');
+if(mapBoard){
+  mapBoard.addEventListener('scroll', ()=>{
+    if(mapBoard.scrollLeft > 10) document.getElementById('mapHint').classList.add('done');
+  }, {passive:true});
+}
 initTheme();
 loadLightSettings();
 renderChapterGrid();
