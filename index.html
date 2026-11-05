@@ -521,22 +521,22 @@ But between school fundraisers and meetings something starts to change.</p>
       </div>
     </div>
     <div class="desk-row">
-      <div class="desk"><a href="#chapters" onclick="showSection('chapters')"><span class="emoji">📖</span>Chapters</a></div>
-      <div class="desk"><a href="#characters" onclick="showSection('characters')"><span class="emoji">🧑‍🤝‍🧑</span>Characters</a></div>
-      <div class="desk"><a href="#timeline" onclick="showSection('timeline')"><span class="emoji">💞</span>Timeline</a></div>
-      <div class="desk"><a href="#explore" onclick="showSection('explore')"><span class="emoji">🏫</span>Explore</a></div>
+      <div class="desk"><a href="#chapters" onclick="showSection('chapters')"><span class="emoji"></span>Chapters</a></div>
+      <div class="desk"><a href="#characters" onclick="showSection('characters')"><span class="emoji"></span>Characters</a></div>
+      <div class="desk"><a href="#timeline" onclick="showSection('timeline')"><span class="emoji"></span>Timeline</a></div>
+      <div class="desk"><a href="#explore" onclick="showSection('explore')"><span class="emoji"></span>Explore</a></div>
     </div>
     <div class="teacher-desk" onclick="showSection('authorNote')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showSection('authorNote')}">a little note from the author ♡</div>
   </div>
   <div class="lights-cta">
     <button class="lights-btn" id="settingsToggle" aria-expanded="false" aria-controls="settingsPanel">✦ Customize the lights</button>
-    <span>Tap to change the color of the garland ✨</span>
+    <span>Tap to change the color of the lights</span>
   </div>
 </section>
 
 <main class="main">
   <section class="section" id="chapters">
-    <div class="section-head"><div><div class="eyebrow">the story so far</div><h2>Chapters</h2><p>One page at a time, one feeling at a time.</p></div><button class="back" onclick="goHome()">← Back to classroom</button></div>
+    <div class="section-head"><div><div class="eyebrow">the story so far</div><h2>Chapters</h2><p></p></div><button class="back" onclick="goHome()">← Back to classroom</button></div>
     <div class="grid" id="chapterGrid"></div>
   </section>
 
@@ -768,9 +768,9 @@ But between school fundraisers and meetings something starts to change.</p>
 const chapterData = [
   {
     id:'ch1', num:'01',
-    tag:'Capítulo 1',
+    tag:'',
     title:'Chapter 1',
-    subtitle:'Where an ordinary day becomes a little less ordinary.',
+    subtitle:'',
     paragraphs: `Lucy Chen had been at Mid-Wilshire High for exactly twenty minutes when she decided she loved it. She'd spent the last two years teaching as a substitute teacher, with new classrooms every week and never enough time to build something permanent. So when the opening at Mid-Wilshire popped up, she'd jumped at it.
 
 And so far, it felt right.
@@ -959,9 +959,9 @@ And it had a very strange sense of humor.`.split(/\n\s*\n/).filter(p => p.trim()
   },
   {
     id:'ch2', num:'02',
-    tag:'Capítulo 2',
+    tag:'',
     title:'Chapter 2',
-    subtitle:'Where teamwork becomes a battlefield.',
+    subtitle:'',
     paragraphs: `Tim Bradford had been in the gym since 7:45.
 
 He was halfway through adjusting the angle of a "Student Council Fundraiser" banner when the doors swung open, and chaos arrived in a floral yellow blouse and jeans.
@@ -1282,9 +1282,9 @@ He gave her a sideways look, glancing down at his ruined shirt. "Barely."`.split
   },
   {
     id:'ch3', num:'03',
-    tag:'Capítulo 3',
+    tag:'',
     title:'Chapter 3',
-    subtitle:'The fundraiser, the rumors, and a touch that lingers.',
+    subtitle:'',
     paragraphs: `By that afternoon, the gym had transformed into a barely contained chaos that only a school event could produce. Students sprinted between tables with last-minute decorations, parents balanced trays of baked goods, and someone kept testing the microphone even though no one had asked them to. The usual of any school events really.
 
 Lucy moved through it all quickly, she talked to everyone, calmed down stressed-out parents, and somehow got three kids to stop arguing just by showing them how to arrange their posters. It wasn't exactly graceful, but it worked well enough, she was incredible.
@@ -1525,9 +1525,9 @@ She was done for the night. And definitely done with Bradford.`.split(/\n\s*\n/)
   },
   {
     id:'ch4', num:'04',
-    tag:'Capítulo 4',
+    tag:'',
     title:'Chapter 4',
-    subtitle:'The morning after, and the rumor mill.',
+    subtitle:'',
     paragraphs: `The next morning, Lucy walked inside the teacher's lounge completely exhausted from the day before, with her bag sliding off her shoulder, still half-asleep. She spotted Tim already at the counter, typing something into a report with the kind of rigid posture only he would have this early.
 
 For a second Lucy thought, Maybe after yesterday... maybe we'll stop snapping at each other every ten minutes.
@@ -1896,9 +1896,9 @@ Principal Andersen sighed and said, before they could attempt to explain themsel
   },
   {
     id:'ch5', num:'05',
-    tag:'Capítulo 5',
+    tag:'',
     title:'Chapter 5',
-    subtitle:'The principal\'s office, a truce, and a look that lingers.',
+    subtitle:'',
     paragraphs: `The two of them sat in the uncomfortable chairs across from Principal Andersen's desk, faces defeated like little kids waiting to be scolded.
 
 Tim's body took up the whole chair, sitting straight with his jaw locked tight. Lucy sat tense but trying to look normal, the picture of someone attempting composure and failing miserably.
@@ -2119,9 +2119,9 @@ Behind her, Tim blinked hard, straightened his posture like he was composing him
   },
   {
     id:'ch6', num:'06',
-    tag:'Capítulo 6',
+    tag:'',
     title:'Chapter 6',
-    subtitle:'A truce that feels like something more.',
+    subtitle:'',
     paragraphs: `The noise of the teachers' lounge reached Lucy before she even got to the door. The combination of voices overlapped in the usual morning chaos of the school, someone was complaining about a scheduling conflict, another teacher was apparently having a difficult time with a particularly demanding parent, nothing out of the ordinary.
 
 Lucy slowed as she approached the entrance, her fingers tightening slightly around the strap of her bag. After everything the previous day, the thought of walking into the lounge and inevitably crossing paths with Tim again made her hesitate for a moment.
@@ -2266,9 +2266,9 @@ And whatever that meant, she'd figure it out later. For now, let the feeling sta
   },
   {
     id:'ch7', num:'07',
-    tag:'Capítulo 7',
+    tag:'',
     title:'Chapter 7',
-    subtitle:'Coffee, assembly plans, and the beginning of something.',
+    subtitle:'',
     paragraphs: `In the week following their conversation in the parking lot, Tim and Lucy fell into a new rhythm. It did not come up again directly but the truce finally started to settle in more naturally.
 
 The mornings in the teachers' lounge turned much quieter and easy, for the happiness of the other teachers. They exchanged easy greetings and the assembly planning sessions actually moved forward.
@@ -2495,9 +2495,9 @@ Lucy smiled at that, before turning into the hallway as the work day finally got
   },
   {
     id:'ch8', num:'08',
-    tag:'Capítulo 8',
+    tag:'',
     title:'Chapter 8',
-    subtitle:'Las Torres, a stranger, and something Tim doesn\'t want to name.',
+    subtitle:'',
     paragraphs: `Lucy could tell Las Torres was packed before she even opened the door. The restaurant sat on the corner just a few blocks from the school, close enough that the teachers came straight there after work.
 
 Through the front windows she spotted a long table where two tables had clearly been shoved together, with a handful of teachers gathered around it.
@@ -2838,9 +2838,9 @@ A moment later the Uber pulled away from the curb, leaving Tim standing on the s
   },
   {
     id:'ch9', num:'09',
-    tag:'Capítulo 9',
+    tag:'',
     title:'Chapter 9',
-    subtitle:'The assembly, a bet, and a moment that changes everything.',
+    subtitle:'',
     paragraphs: `Lucy found herself once again arriving earlier at the school that morning. She walked down the hallway toward the auditorium with a stack of colorful printed schedules tucked under her arm and a clipboard balanced against her side. She'd gone over everything twice already that morning, just to make sure nothing had been missed.
 
 The auditorium doors were already open, which made her pause for half a second before pushing them the rest of the way and stepping inside.
@@ -3261,9 +3261,9 @@ She didn't dare look at him as she moved, almost running to the side exit, not w
   },
   {
     id:'ch10', num:'10',
-    tag:'Capítulo 10',
+    tag:'',
     title:'Chapter 10',
-    subtitle:'A dream, a distance, and the morning after the almost-kiss.',
+    subtitle:'',
     paragraphs: `The auditorium was empty with only the golden stage lights turned on. Lucy stood near the edge of the stage with Tim right there in front of her, so close that she could see the exact moment his eyes dropped to her mouth and his breathing turned heavier.
 
 When he looked back up, there was something resolved in his expression, a mixture of passion and need filled his eyes.
@@ -3506,9 +3506,9 @@ That was not how she expected this day to go.`.split(/\n\s*\n/).filter(p => p.tr
   },
   {
     id:'ch11', num:'11',
-    tag:'Capítulo 11',
+    tag:'',
     title:'Chapter 11',
-    subtitle:'Thirteen days, a fight, and a confirmation of feelings.',
+    subtitle:'',
     paragraphs: `It'd been thirteen days.
 
 13.
@@ -3747,9 +3747,9 @@ Principal Andersen cleared her throat and changed the subject to another topic. 
   },
   {
     id:'ch12', num:'12',
-    tag:'Capítulo 12',
+    tag:'',
     title:'Chapter 12',
-    subtitle:'Las Torres again, a stranger named Chris, and a kiss that changes everything.',
+    subtitle:'',
     paragraphs: `A few days after the disastrous staff meeting, Lucy was sitting in the teachers' lounge during her free period going over half-finished lesson plans.
 
 Or at least, that was what she was supposed to be doing, the open notebook in front of her hadn't changed in nearly ten minutes.
@@ -4330,9 +4330,9 @@ What they had done did not fix anything. If anything, it made everything more co
   },
   {
     id:'ch13', num:'13',
-    tag:'Capítulo 13',
+    tag:'',
     title:'Chapter 13',
-    subtitle:'The kiss on the sidewalk, and what comes after.',
+    subtitle:'',
     paragraphs: `All that time of frustration and misunderstandings poured all at once, making it impossible to tell where the anger had stopped and everything else had begun. Every time they pulled back just enough to breathe one of them found the other again almost immediately, not giving even an inch of distance between each other before clashing their lips together once again.
 
 Lucy wasn't thinking straight anymore, the wondering and second guessing on her mind got replaced by Tim. All she could think about was the feeling of his lips on hers, his hands on her waist and his forehead brushing hers for the briefest moment before he leaned in again for another kiss.
@@ -4655,9 +4655,9 @@ He tried the handle again, this time putting his shoulder into the door for good
   },
   {
     id:'ch14', num:'14',
-    tag:'Capítulo 14',
+    tag:'',
     title:'Chapter 14',
-    subtitle:'Locked in a storage room, and a date that changes everything.',
+    subtitle:'',
     paragraphs: `"I think if we both push at the same time it might give in?" Lucy tried to reason, stepping beside him and pushing her shoulder against the door.
 
 Tim looked at her unconvinced at the idea, but shifted into position anyway. "On three, okay?"
@@ -5316,9 +5316,9 @@ Tim watched her go for a moment before heading in the opposite direction, alread
   },
   {
     id:'ch15', num:'15',
-    tag:'Capítulo 15',
+    tag:'',
     title:'Chapter 15',
-    subtitle:'Gossip, a text conversation, and the promise of Saturday.',
+    subtitle:'',
     paragraphs: `Later that day, Lucy walked the entry hallway of Mid-Wilshire High for a second time in the same day. She had gone home intending to take a quick shower, get into her own bed and sleep for a couple of hours before returning to Mid-Wilshire, which had sounded perfectly reasonable when she'd said goodbye to Tim that morning.
 
 Unfortunately, the moment she'd finally settled under her own blankets after spending the night settled on the hard floor of a tiny storage room, she'd discovered that her bed suddenly felt like a million clouds bundled up together under her. Needless to say, she passed out not even two minutes after laying her head on her pillow.
