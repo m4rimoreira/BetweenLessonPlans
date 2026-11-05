@@ -412,15 +412,53 @@
 [data-theme="dark"] .room-num{fill:#8c949b}
 [data-theme="dark"] .hall-line{stroke:#3d444c}
 [data-theme="dark"] .compass{background:#252a30}
+
+/* ============ RESPONSIVE FIXES ============ */
+.icon-btn,.small-btn{white-space:nowrap;display:inline-flex;align-items:center;gap:4px}
+.topbar{min-height:66px;gap:12px}
+.brand{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top-actions{flex-wrap:nowrap;flex-shrink:0}
+
+/* pernas das mesas em qualquer largura */
+.desk:before{left:13px;box-shadow:none}
+.desk:after{content:"";position:absolute;bottom:-28px;right:13px;width:8px;height:30px;background:#9e7656}
+
+@media(max-width:1000px){
+  .window{width:110px;height:120px;top:42px;z-index:1}
+  .curtain{height:130px;box-shadow:110px 0 #f2a9b9}
+  .clock{top:50px}
+  .pennant{display:none}
+  .board-wrap{margin-top:140px}
+}
+
+@media(max-width:700px){
+  .topbar{min-height:0;padding:10px 14px}
+  .top-actions{gap:6px}
+  .top-actions .small-btn{display:inline-flex}
+  .icon-btn .lbl,.small-btn .lbl{display:none}
+  .icon-btn,.small-btn{padding:8px 11px;font-size:14px}
+
+  .window{width:80px;height:90px;right:6%;top:40px}
+  .curtain{width:20px;height:100px;box-shadow:80px 0 #f2a9b9}
+  .clock{top:46px}
+  .board-wrap{margin-top:110px}
+
+  /* mapa com rolagem lateral em vez de encolher */
+  .map-board{aspect-ratio:auto;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .map-board svg{width:640px;min-width:640px;height:auto}
+  .compass{display:none}
+  .room-label{font-size:11px}
+  .room-emoji-svg{font-size:18px}
+}
 </style>
 </head>
 <body>
 <header class="topbar">
   <div class="brand">between lesson <span>plans</span> ♡</div>
   <div class="top-actions">
-    <button class="small-btn" onclick="goHome()">⌂ Home</button>
-    <button class="icon-btn" id="themeToggle" aria-label="Toggle dark theme">🌙 Dark</button>
-    <button class="icon-btn" id="settingsToggle" aria-expanded="false" aria-controls="settingsPanel">✦ Customize the lights</button>
+    <button class="small-btn" onclick="goHome()"><span>⌂</span><span class="lbl">Home</span></button>
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle dark theme"><span>🌙</span><span class="lbl">Dark</span></button>
+    <button class="icon-btn" id="settingsToggle" aria-expanded="false" aria-controls="settingsPanel"><span>✦</span><span class="lbl">Customize the lights</span></button>
   </div>
 </header>
 
@@ -5788,7 +5826,9 @@ window.addEventListener('hashchange', openFromHash);
 /* ============ DARK THEME ============ */
 function applyTheme(theme){
   document.documentElement.setAttribute('data-theme', theme);
-  document.getElementById('themeToggle').textContent = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
+  document.getElementById('themeToggle').innerHTML = theme === 'dark'
+    ? '<span>☀️</span><span class="lbl">Light</span>'
+    : '<span>🌙</span><span class="lbl">Dark</span>';
   document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#1a1d21' : '#f7f3eb');
 }
 function initTheme(){
